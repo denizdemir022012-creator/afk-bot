@@ -1,34 +1,31 @@
+const mc = require('minecraft-protocol')
+
 console.log('=== BOT BAŞLIYOR ===')
+console.log('Sunucu: dynamic-8.magmanode.com:25762')
+console.log('Minecraft: 26.2')
 
-const mineflayer = require('mineflayer')
-
-console.log('Mineflayer yüklendi.')
-console.log('Sunucuya bağlanılıyor: dynamic-8.magmanode.com:25762')
-
-const bot = mineflayer.createBot({
+const client = mc.createClient({
   host: 'dynamic-8.magmanode.com',
   port: 25762,
-  username: 'ali1234'
+  username: 'ali1234',
+  auth: 'offline',
+  version: '26.2'
 })
 
-bot.on('login', () => {
-  console.log('=== MINECRAFT SUNUCUSUNA GİRİLDİ ===')
+client.once('login', () => {
+  console.log('=== MINECRAFT 26.2 SUNUCUSUNA GİRİLDİ ===')
 })
 
-bot.on('spawn', () => {
-  console.log('=== BOT SPAWN OLDU ===')
-})
-
-bot.on('error', err => {
+client.on('error', (err) => {
   console.log('=== HATA ===')
   console.log(err)
 })
 
-bot.on('kicked', reason => {
-  console.log('=== SUNUCUDAN ATILDI ===')
-  console.log(reason)
+client.on('end', () => {
+  console.log('=== BAĞLANTI KESİLDİ ===')
 })
 
-bot.on('end', () => {
-  console.log('=== BAĞLANTI KESİLDİ ===')
+client.on('kick_disconnect', (packet) => {
+  console.log('=== SUNUCUDAN ATILDI ===')
+  console.log(packet)
 })
