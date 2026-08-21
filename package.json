@@ -1,0 +1,11 @@
+{
+  "name": "minecraft-afk-bot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "mineflayer": "latest"
+  }
+}
