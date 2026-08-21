@@ -1,12 +1,12 @@
 {
   "name": "afk-bot",
   "version": "1.0.0",
-  "description": "Minecraft AFK bot",
+  "description": "Minecraft 26.2 AFK bot",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
   "dependencies": {
-    "mineflayer": "^4.32.0"
+    "minecraft-protocol": "https://github.com/Complexity-ML/node-minecraft-protocol-26.2/releases/download/complexity-26.2.3/minecraft-protocol-complexity-26.2.3.tgz"
   }
 }
